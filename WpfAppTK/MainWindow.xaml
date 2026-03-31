@@ -1,12 +1,49 @@
-﻿<Window x:Class="WpfAppTK.MainWindow"
+<Window x:Class="WpfAppTK.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfAppTK"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Применение закона Ома" Height="280" Width="420"
+        ResizeMode="CanMinimize">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Grid.Row="0" Header="Вычисляемая величина" Margin="0,0,0,10">
+            <StackPanel Orientation="Horizontal" Margin="8,4">
+                <RadioButton x:Name="RadioCurrent"    Content="Сила тока"     Margin="0,0,16,0" IsChecked="True"  Checked="Radio_Checked"/>
+                <RadioButton x:Name="RadioVoltage"    Content="Напряжение"    Margin="0,0,16,0"                  Checked="Radio_Checked"/>
+                <RadioButton x:Name="RadioResistance" Content="Сопротивление"                                    Checked="Radio_Checked"/>
+            </StackPanel>
+        </GroupBox>
+
+        <Grid Grid.Row="1" Margin="0,0,0,8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="LabelParam1" Content="Напряжение (Вольт):" VerticalAlignment="Center"/>
+            <TextBox x:Name="TextParam1" Grid.Column="1" VerticalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="0,0,0,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="LabelParam2" Content="Сопротивление (Ом):" VerticalAlignment="Center"/>
+            <TextBox x:Name="TextParam2" Grid.Column="1" VerticalAlignment="Center"/>
+        </Grid>
+
+        <Button Grid.Row="3" Content="Вычислить" Width="120" HorizontalAlignment="Left"
+                Margin="0,0,0,12" Click="ButtonCalculate_Click"/>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal">
+            <Label x:Name="LabelResult" Content="Сила тока =" FontWeight="Bold"/>
+            <Label x:Name="LabelResultValue" Content="" FontWeight="Bold"/>
+        </StackPanel>
     </Grid>
 </Window>
